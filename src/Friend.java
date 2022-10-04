@@ -1,12 +1,15 @@
+import java.util.Random;
+
 public class Friend {
     //Instans variabler
     int hp = 100;
-    int dmg = 10;
+    int dmg;
     String name = "Friend";
     boolean friend = true;
 
     //Konstruktor
-    public Friend () {}
+    public Friend() {
+    }
 
     public Friend(String name) {
         this.name = name;
@@ -32,6 +35,8 @@ public class Friend {
     }
 
     public int hpLoss() {
+        Random rn = new Random();
+        dmg = rn.nextInt(10);
         hp -= dmg;
         return hp;
     }
