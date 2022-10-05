@@ -7,9 +7,7 @@ public class Main {
         Scanner inLine = new Scanner(System.in);
         Friend FirstFriend = new Friend();
         Friend Filip = new Friend("Filip");
-
-        drawWindowFilip(Filip.getHp());
-
+        
         //FirstFriend.PrintFriend();
         //Filip.PrintFriend();
         //eller
@@ -38,6 +36,7 @@ public class Main {
             } else if (Filip.getHp() <= 0) {
                 System.out.println(Filip.getName() + " är död!");
             }
+            drawWindowFilip(Filip.getHp());
         }
     }
 

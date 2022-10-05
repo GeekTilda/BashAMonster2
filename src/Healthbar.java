@@ -25,10 +25,12 @@ public class Healthbar extends JPanel {
     protected void addHealthbar(Graphics g) {
         g.setColor(Color.GREEN);
         g.fillRect(25, 25, hp, 50);
+
     }
 
+    //Använder inte just nu
     protected void changeHealthbar(Graphics g) {
         g.setColor(Color.GREEN);
-        g.fillRect(25, 25, 300, 100);
+        g.fillRect(25, 25, 300, 50);
     }
 }
