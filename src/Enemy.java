@@ -1,10 +1,13 @@
+import java.util.Random;
+
 public class Enemy {
     int hp = 100;
     int dmg = 5;
     String name = "Enemy";
     boolean friend = false;
 
-    public Enemy() {}
+    public Enemy() {
+    }
 
     public Enemy(int hp, String name) {
         this.hp = hp;
@@ -16,10 +19,12 @@ public class Enemy {
     }
 
     public int getHp() {
-        return hp;
+        return this.hp;
     }
 
     public int hpLoss() {
+        Random rn = new Random();
+        dmg = rn.nextInt(10);
         hp -= dmg;
         return hp;
     }

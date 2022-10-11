@@ -1,13 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner inLine = new Scanner(System.in);
-        Friend FirstFriend = new Friend();
+        Scanner inLine = new Scanner(System.in); //Lägger in scannern
+        Friend FirstFriend = new Friend(); //
         Friend Filip = new Friend("Filip");
-        
+
         //FirstFriend.PrintFriend();
         //Filip.PrintFriend();
         //eller
@@ -35,18 +36,32 @@ public class Main {
                 System.out.println(FirstEnemy.getName() + " är död!");
             } else if (Filip.getHp() <= 0) {
                 System.out.println(Filip.getName() + " är död!");
+            } else if (Filip.getHp() <= 0 && FirstEnemy.getHp() <= 0) {
+                System.out.println("Båda dog! ");
             }
-            drawWindowFilip(Filip.getHp());
+            JFrame frame = drawWindow(Filip, FirstEnemy);
+
+            synchronized (args) {
+                try {
+                    args.wait(500);
+                } catch (InterruptedException e) {
+
+                }
+            }
+
+            frame.dispose();
         }
     }
 
-    public static void drawWindowFilip(int hp) {
-        JFrame frame = new JFrame("Healthbar Filip"); //create the window
+
+    public static JFrame drawWindow(Friend friend, Enemy enemy) {
+        JFrame frame = new JFrame("Healthbar " + friend.getName()); //create the window
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Set action on closing window
-        Healthbar healthbar = new Healthbar(hp); //Create the canvas
-        healthbar.setPreferredSize(new Dimension(350, 150));
+        Healthbar healthbar = new Healthbar(friend, enemy); //Create the canvas
+        healthbar.setPreferredSize(new Dimension(350, 200));
         frame.getContentPane().add(healthbar); // add the canvas to the frame
         frame.pack(); // Package everything
         frame.setVisible(true); //make everything visible
+        return frame;
     }
 }
