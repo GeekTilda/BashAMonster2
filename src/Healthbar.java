@@ -4,14 +4,14 @@ import java.awt.*;
 public class Healthbar extends JPanel {
 
     Friend myFriend;
-    Enemy myEnemy;
+    Friend myFriend2;
 
     public Healthbar() {
     }
 
-    public Healthbar(Friend friend, Enemy enemy) {
+    public Healthbar(Friend friend, Friend friend2) {
         myFriend = friend;
-        myEnemy = enemy;
+        myFriend2 = friend2;
     }
 
 
@@ -30,6 +30,10 @@ public class Healthbar extends JPanel {
         g.setColor(Color.GREEN);
         g.fillRect(25, 25, myFriend.getHp() * 3, 50);
         g.setColor(Color.RED);
-        g.fillRect(25, 75, myEnemy.getHp() * 3, 50);
+        g.fillRect(25, 75, myFriend2.getHp() * 3, 50);
+    }
+
+    public void getHit() {
+
     }
 }

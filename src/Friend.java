@@ -5,15 +5,22 @@ public class Friend {
     int hp = 100;
     int dmg;
     String name = "Friend";
-    boolean friend = true;
+    boolean friend; //final boolean???
 
     //Konstruktor
-    public Friend() {
+    public Friend(boolean friend) {
+        this.friend = friend;
     }
 
     public Friend(String name) {
         this.name = name;
     }
+
+    public Friend(String name, boolean friend) {
+        this.name = name;
+        this.friend = friend;
+    }
+
 
     public void PrintFriend() {
         System.out.println("Ditt monster heter " + name);
@@ -28,6 +35,10 @@ public class Friend {
 
     public void setName(String newName) {
         this.name = newName;
+    }
+
+    public void setFriend(boolean friend) {
+        this.friend = friend;
     }
 
     public int getHp() {
