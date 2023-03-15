@@ -47,8 +47,13 @@ public class Friend {
 
     public int hpLoss() {
         Random rn = new Random();
-        dmg = rn.nextInt(10);
+        dmg = rn.nextInt(1, 10);
+        System.out.println(dmg);
         hp -= dmg;
         return hp;
+    }
+
+    public String theString() {
+        return "" + hp;
     }
 }

@@ -24,8 +24,12 @@ public class Enemy {
 
     public int hpLoss() {
         Random rn = new Random();
-        dmg = rn.nextInt(10);
+        dmg = rn.nextInt(1, 10);
         hp -= dmg;
         return hp;
+    }
+
+    public String theString() {
+        return "" + hp;
     }
 }
