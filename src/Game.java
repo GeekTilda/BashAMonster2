@@ -21,8 +21,8 @@ public class Game extends JFrame {
         String namn = inLine.next();
 
         FirstFriend.setName(namn);
-        System.out.println("Ena vännen heter " + FirstFriend.getName() + " och har " + FirstFriend.getHp() + " hp!");
-        System.out.println("Andra vännen heter " + Filip.getName() + " och har " + Filip.getHp() + " hp!");
+        System.out.println("Ena monstret heter " + FirstFriend.getName() + " och har " + FirstFriend.getHp() + " hp!");
+        System.out.println("Andra monstret heter " + Filip.getName() + " och har " + Filip.getHp() + " hp!");
         System.out.println();
         System.out.println(Filip.getName() + " säger 'Du är ful!'");
         System.out.println(FirstFriend.getName() + " säger 'Du är elak, du är nu min fiende!'");
@@ -33,6 +33,7 @@ public class Game extends JFrame {
 
     public void drawWindow(Friend friend, Friend enemy) {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Set action on closing window
+        this.setTitle("Healthbars!");
         Healthbar healthbar = new Healthbar(friend, enemy); //Create the canvas
         healthbar.setPreferredSize(new Dimension(350, 200));
         this.add(healthbar); // add the canvas to the frame

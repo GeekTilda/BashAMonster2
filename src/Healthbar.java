@@ -48,16 +48,22 @@ public class Healthbar extends JPanel implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (myFriend.getHp() > 0 && myEnemy.getHp() > 0) {
             getHit();
+
+            if (myEnemy.getHp() <= 0 && myFriend.getHp() <= 0) {
+                System.out.println("Båda dog! ");
+                myFriend.hp = 0;
+                myEnemy.hp = 0;
+            } else if (myEnemy.getHp() <= 0) {
+                System.out.println(myEnemy.getName() + " är död!");
+                myEnemy.hp = 0;
+            } else if (myFriend.getHp() <= 0) {
+                System.out.println(myFriend.getName() + " är död!");
+                myFriend.hp = 0;
+            }
+
             System.out.println();
             System.out.println(myFriend.getName() + " slår " + myEnemy.getName() + ". " + myEnemy.getName() + " har nu " + myEnemy.getHp() + " hp.");
             System.out.println(myEnemy.getName() + " slår " + myFriend.getName() + ". " + myFriend.getName() + " har nu " + myFriend.getHp() + " hp.");
-            if (myFriend.getHp() <= 0) {
-                System.out.println(myFriend.getName() + " är död!");
-            } else if (myEnemy.getHp() <= 0) {
-                System.out.println(myEnemy.getName() + " är död!");
-            } else if (myEnemy.getHp() <= 0 && myFriend.getHp() <= 0) {
-                System.out.println("Båda dog! ");
-            }
         }
     }
 
