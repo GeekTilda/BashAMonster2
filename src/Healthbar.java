@@ -11,24 +11,23 @@ public class Healthbar extends JPanel implements MouseListener {
     public Healthbar() {
     }
 
+    /*
+     *  Sets the enemy as our enemy.
+     *  Sets the friend as our friend.
+     *  Adds MouseListener to be able to "hear" clicks.
+     */
     public Healthbar(Friend friend, Friend enemy) {
         myFriend = friend;
         myEnemy = enemy;
         this.addMouseListener(this);
     }
 
-
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         addHealthbar(g);
     }
-
-    /*protected void addHealthbar(Graphics g) { //Original addHealthbar
-        g.setColor(Color.GREEN);
-        g.fillRect(10, 50, 300, 100);
-    } */
-
+    
     protected void addHealthbar(Graphics g) {
         g.setColor(Color.GREEN);
         g.fillRect(25, 25, myFriend.getHp() * 3, 50);
@@ -50,20 +49,25 @@ public class Healthbar extends JPanel implements MouseListener {
             getHit();
 
             if (myEnemy.getHp() <= 0 && myFriend.getHp() <= 0) {
-                System.out.println("Båda dog! ");
                 myFriend.hp = 0;
                 myEnemy.hp = 0;
             } else if (myEnemy.getHp() <= 0) {
-                System.out.println(myEnemy.getName() + " är död!");
                 myEnemy.hp = 0;
             } else if (myFriend.getHp() <= 0) {
-                System.out.println(myFriend.getName() + " är död!");
                 myFriend.hp = 0;
             }
 
             System.out.println();
             System.out.println(myFriend.getName() + " slår " + myEnemy.getName() + ". " + myEnemy.getName() + " har nu " + myEnemy.getHp() + " hp.");
             System.out.println(myEnemy.getName() + " slår " + myFriend.getName() + ". " + myFriend.getName() + " har nu " + myFriend.getHp() + " hp.");
+
+            if (myEnemy.getHp() <= 0 && myFriend.getHp() <= 0) {
+                System.out.println("Båda dog! ");
+            } else if (myEnemy.getHp() <= 0) {
+                System.out.println(myEnemy.getName() + " är död!");
+            } else if (myFriend.getHp() <= 0) {
+                System.out.println(myFriend.getName() + " är död!");
+            }
         }
     }
 
